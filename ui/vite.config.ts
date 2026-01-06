@@ -60,9 +60,17 @@ export default defineConfig({
 		]
 	},
 	resolve: {
-		alias: {
-			$workers: '/src/workers'
-		}
+		alias: [
+			{ find: '$workers', replacement: '/src/workers' },
+			{
+				find: 'uxn.wasm/util',
+				replacement: fileURLToPath(new URL('./src/lib/uxn/uxn-wasm-util-shim.ts', import.meta.url))
+			},
+			{
+				find: 'uxn.wasm',
+				replacement: fileURLToPath(new URL('./src/lib/uxn/uxn-wasm-shim.ts', import.meta.url))
+			}
+		]
 	},
 	test: {
 		projects: [
