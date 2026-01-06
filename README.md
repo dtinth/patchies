@@ -41,7 +41,10 @@ Patchies is licensed under [AGPL-3.0](LICENSE) and builds upon many amazing open
 
 ## Getting Started
 
-- Go to [patchies.app](https://patchies.app).
+- Go to [patchies.app](https://patchies.app) or run locally:
+  - Install [Bun](https://bun.sh) (e.g. `curl -fsSL https://bun.sh/install | bash`).
+  - `cd ui && bun install`
+  - `bun run dev -- --host --port 4173` then open `http://localhost:4173`
 - Use the mouse to pan the canvas.
 - Use the scroll wheel to zoom the canvas.
 
