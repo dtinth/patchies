@@ -5,8 +5,16 @@ import { decodeBytes, encodeBytes } from './utils';
 const algo = 'AES-GCM';
 const strToSha1: Record<string, string> = {};
 
-const pack = (buff: ArrayBuffer) =>
-	btoa(String.fromCharCode.apply(null, new Uint8Array(buff) as unknown as number[]));
+const pack = (buff: ArrayBuffer) => {
+	const bytes = new Uint8Array(buff);
+	let binary = '';
+
+	for (let i = 0; i < bytes.length; i++) {
+		binary += String.fromCharCode(bytes[i]);
+	}
+
+	return btoa(binary);
+};
 
 const unpack = (packed: string) => {
 	const str = atob(packed);

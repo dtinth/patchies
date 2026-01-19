@@ -67,8 +67,8 @@ export class P2PManager {
 	private async _initialize(): Promise<void> {
 		this.room = joinRoom({ appId: APP_ID }, this.roomId) as unknown as TrysteroRoom;
 		this.connectionState = 'connected';
-		this.room.onPeerJoin?.(() => this.updatePeerCount());
-		this.room.onPeerLeave?.(() => this.updatePeerCount());
+		this.room.onPeerJoin?.((_peerId) => this.updatePeerCount());
+		this.room.onPeerLeave?.((_peerId) => this.updatePeerCount());
 		this.updatePeerCount();
 	}
 
