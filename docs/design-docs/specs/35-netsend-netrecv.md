@@ -2,6 +2,8 @@
 
 Let's create two objects: `netsend <chan>` and `netrecv <chan>`. We want to send the JSON data over wire using the `p2pkit` library, and using the trackers in `trackersAnnounceURLs`.
 
+> Update: Implementation now relies on the Trystero torrent strategy for peer discovery and mesh connections while keeping the same `room` query parameter flow.
+
 Use the below code sample as inspiration. The below code sample only handles MIDI, but for us we can handle a more generic JSON data.
 
 ```tsx
